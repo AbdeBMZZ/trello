@@ -40,7 +40,11 @@ const Column = ({ id, todos, index }: Props) => {
                 <h2 className="flex justify-between font-bold text-xl p-2">
                   {idToColumnText[id]}
                   <span className="text-gray-500 bg-gray-200 rounded-full px-2 py-2 text-sm font-normal">
-                    {todos.length}
+                    {!searchString
+                      ? todos.length
+                      : todos.filter((todo) =>
+                          todo.title.toLowerCase().includes(searchString)
+                        ).length}
                   </span>
                 </h2>
 
