@@ -4,6 +4,7 @@ import { create } from "zustand";
 interface BoardState {
   board: Board;
   getBoard: () => void;
+  setBoardState: (board: Board) => void;
 }
 
 export const useBoardStore = create<BoardState>((set) => ({
@@ -14,4 +15,6 @@ export const useBoardStore = create<BoardState>((set) => ({
     const board = await getTodosGroupByColumn();
     set({ board });
   },
+
+  setBoardState: (board: Board) => set({ board }),
 }));
